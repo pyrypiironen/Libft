@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   strlcat.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 18:34:12 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/03 18:34:15 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/04 16:42:13 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/04 16:44:31 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, \
+	size_t dstsize)
 {
-	int		i;
-	int		arr[20];
-	long	k;
+	size_t	i;
+	int		y;
+	int		res;
 
 	i = 0;
-	k = n;
-	if (k < 0)
-	{
-		k = k * -1;
-		ft_putchar('-');
-	}
-	arr[i] = k % 10 + '0';
-	i = i + 1;
-	while ((k /= 10) > 0)
-	{
-		arr[i] = (k % 10 + '0');
+	y = 0;
+	res = strlen(src) + strlen(dst);
+	while (dst[i])
 		i++;
-	}
-	i--;
-	while (i >= 0)
+	while (src[y] && i < dstsize - 1)
 	{
-		ft_putchar(arr[i]);
-		i--;
+		dst[i] = src[y];
+		i++;
+		y++;
 	}
+	i++;
+	dst[i] = '\0';
+	return (res);
 }
+//https://c-for-dummies.com/blog/?p=3896

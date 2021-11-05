@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 18:34:12 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/03 18:34:15 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/05 15:31:02 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/05 15:31:03 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int		i;
-	int		arr[20];
-	long	k;
+	size_t	i;
 
 	i = 0;
-	k = n;
-	if (k < 0)
+	while (i < n)
 	{
-		k = k * -1;
-		ft_putchar('-');
+		if (s1 != s2)
+			return (s1 - s2);//Wrong size
+		else
+		{
+			i++;
+			s1++;
+			s2++;
+		}
 	}
-	arr[i] = k % 10 + '0';
-	i = i + 1;
-	while ((k /= 10) > 0)
-	{
-		arr[i] = (k % 10 + '0');
-		i++;
-	}
-	i--;
-	while (i >= 0)
-	{
-		ft_putchar(arr[i]);
-		i--;
-	}
+	return (0);
 }

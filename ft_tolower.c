@@ -1,41 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 18:34:12 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/03 18:34:15 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/05 13:16:48 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/05 13:16:50 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_tolower(int c)
 {
-	int		i;
-	int		arr[20];
-	long	k;
-
-	i = 0;
-	k = n;
-	if (k < 0)
-	{
-		k = k * -1;
-		ft_putchar('-');
-	}
-	arr[i] = k % 10 + '0';
-	i = i + 1;
-	while ((k /= 10) > 0)
-	{
-		arr[i] = (k % 10 + '0');
-		i++;
-	}
-	i--;
-	while (i >= 0)
-	{
-		ft_putchar(arr[i]);
-		i--;
-	}
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	else
+		return (c);
 }

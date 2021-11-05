@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 18:34:12 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/03 18:34:15 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/03 19:52:43 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/03 19:52:46 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 {
 	int		i;
-	int		arr[20];
-	long	k;
+	size_t	y;
 
 	i = 0;
-	k = n;
-	if (k < 0)
-	{
-		k = k * -1;
-		ft_putchar('-');
-	}
-	arr[i] = k % 10 + '0';
-	i = i + 1;
-	while ((k /= 10) > 0)
-	{
-		arr[i] = (k % 10 + '0');
+	y = 0;
+	while (s1[i])
 		i++;
-	}
-	i--;
-	while (i >= 0)
+	while (s2[y] && y < n)
 	{
-		ft_putchar(arr[i]);
-		i--;
+		s1[i] = s2[y];
+		i++;
+		y++;
 	}
+	i++;
+	s1[i] = '\0';
+	return (s1);
 }

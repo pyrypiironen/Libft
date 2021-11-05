@@ -1,41 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 18:34:12 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/03 18:34:15 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/05 12:33:25 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/05 12:33:27 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_isalnum(int c)
 {
-	int		i;
-	int		arr[20];
-	long	k;
-
-	i = 0;
-	k = n;
-	if (k < 0)
-	{
-		k = k * -1;
-		ft_putchar('-');
-	}
-	arr[i] = k % 10 + '0';
-	i = i + 1;
-	while ((k /= 10) > 0)
-	{
-		arr[i] = (k % 10 + '0');
-		i++;
-	}
-	i--;
-	while (i >= 0)
-	{
-		ft_putchar(arr[i]);
-		i--;
-	}
+	if (ft_isdigit(c) == 1 || ft_isalpha(c) == 1)
+		return (1);
+	else
+		return (0);
 }

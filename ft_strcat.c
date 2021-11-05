@@ -12,23 +12,22 @@
 
 #include "libft.h"
 
-char	*ft_strcat(char *str1, const char *str2)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	int i;
-	int y;
+	int	i;
+	int	y;
 
 	i = 0;
 	y = 0;
-	while (str1[i])
+	while (s1[i])
 		i++;
-	while (str2[y])
+	while (s2[y])
 	{
-		str1[i] = str2[y];
+		s1[i] = s2[y];
 		i++;
 		y++;
 	}
 	i++;
-	str1[i] = '\0';
-
-	return (str1);
+	s1[i] = '\0';
+	return (s1);
 }
