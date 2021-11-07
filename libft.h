@@ -38,7 +38,8 @@ char	*ft_strcat(char *restrict s1, const char *restrict s2);//DONE
 char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n);//DONE
 size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t \
 	dstsize);
-int		ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(char *s1, char *s2);//DONE
+int		ft_strncmp(const char *s1, const char *s2, size_t n);//DONE
 char	*ft_strdup(const char *src);//DONE
 int		ft_strlen(char *str);//DONE
 int		ft_tolower(int c);//DONE
