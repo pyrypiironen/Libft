@@ -10,7 +10,8 @@ $(NAME):
 		gcc $(FLAGS) -c $(FILES) $(HEADER)
 		ar rc $(NAME) *.o
 		ranlib $(NAME)
-
+		gcc -L. -lft
+		./a.out
 
 clean:
 		rm -f *.o
