@@ -10,8 +10,6 @@ $(NAME):
 		gcc $(FLAGS) -c $(FILES) $(HEADER)
 		ar rc $(NAME) *.o
 		ranlib $(NAME)
-		gcc -L. -lft
-		./a.out
 
 clean:
 		rm -f *.o
@@ -20,3 +18,10 @@ fclean: clean
 		rm -f $(NAME) *.gch
 
 re: fclean all
+
+kk: fclean
+		gcc $(FLAGS) -c $(FILES) $(HEADER)
+		ar rc $(NAME) *.o
+		ranlib $(NAME)
+		gcc -L. -lft
+		./a.out
