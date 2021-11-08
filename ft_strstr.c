@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 16:28:41 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/08 16:28:43 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/08 18:34:52 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/08 18:35:09 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	char			*str;
-	unsigned char	box;
-	size_t			i;
+	char	*stack;
+	size_t	i;
 
-	str = (char *)s;
-	box = (unsigned char)c;
+	stack = (char *)haystack;
 	i = 0;
-	while (*str != '\n')
+	if (strlen(needle) == 0)
+		return (stack);
+	while (i < strlen(haystack))
 	{
-		str++;
+		if (ft_strncmp(stack, needle, strlen(haystack - i)) == 0)
+			return (stack);
+		stack++;
 		i++;
 	}
-	while (*str != box && i > 0)
-		str--;
-	if (*str == box)
-		return (str);
 	return (NULL);
-
 }

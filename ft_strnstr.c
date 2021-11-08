@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 16:28:41 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/08 16:28:43 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/08 19:08:44 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/08 19:08:46 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char			*str;
-	unsigned char	box;
-	size_t			i;
+	char	*stack;
+	size_t	i;
 
-	str = (char *)s;
-	box = (unsigned char)c;
+	stack = (char *)haystack;
 	i = 0;
-	while (*str != '\n')
+	if (strlen(needle) == 0)
+		return (stack);
+	while (i < strlen(haystack) && i < len)
 	{
-		str++;
+		if (ft_strncmp(stack, needle, strlen(haystack - i)) == 0\
+			&& (len - i) >= strlen(needle))
+			return (stack);
+		stack++;
 		i++;
 	}
-	while (*str != box && i > 0)
-		str--;
-	if (*str == box)
-		return (str);
 	return (NULL);
-
 }

@@ -43,11 +43,11 @@ char	*ft_strcpy(char * dst, const char * src);//DONE
 char	*ft_strncpy(char * dst, const char * src, size_t len);//DONE
 char	*ft_strchr(const char *s, int c);//DONE
 char	*ft_strrchr(const char *s, int c);
-char	*ft_strstr(const char *haystack, const char *needle);
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char	*ft_strstr(const char *haystack, const char *needle);//DONE
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);//DONE
 int		ft_strcmp(char *s1, char *s2);//DONE
 int		ft_strncmp(const char *s1, const char *s2, size_t n);//DONE
-char	*ft_strdup(const char *src);//DONE with malloc
+char	*ft_strdup(const char *s1);//DONE with malloc
 int		ft_strlen(char *str);//DONE
 int		ft_tolower(int c);//DONE
 int		ft_toupper(int c);//DONE
