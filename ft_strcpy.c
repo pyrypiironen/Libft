@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   strcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 15:32:46 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/07 15:32:47 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/07 18:05:06 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/07 18:05:31 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strcpy(char * dst, const char * src)
 {
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*srce;
-	unsigned char	*buf;
+	int i;
 
 	i = 0;
-	dest = (unsigned char *)dst;
-	srce = (unsigned char *)src;
-	buf = srce;
-	while (i < len)
+	while (src[i] != '\0')
 	{
-		*dest = *buf;
+		dst[i] = src[i];
 		i++;
-		dest++;
-		buf++;
 	}
+	dst[i] = '\0';
 	return (dst);
 }

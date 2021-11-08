@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 15:32:46 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/07 15:32:47 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/08 16:28:41 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/08 16:28:43 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*srce;
-	unsigned char	*buf;
+	char			*str;
+	unsigned char	box;
+	int				i;
 
+	str = (char *)s;
+	box = (unsigned char)c;
 	i = 0;
-	dest = (unsigned char *)dst;
-	srce = (unsigned char *)src;
-	buf = srce;
-	while (i < len)
+	while (*str != '\n')
 	{
-		*dest = *buf;
+		str++;
 		i++;
-		dest++;
-		buf++;
 	}
-	return (dst);
+	while (*str != box && i > 0)
+		str--;
+	if (*str == box)
+		return (str);
+	return (NULL);
+
 }
