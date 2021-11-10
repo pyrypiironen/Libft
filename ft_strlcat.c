@@ -16,13 +16,23 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, \
 	size_t dstsize)
 {
 	size_t	i;
-	int		y;
-	int		res;
+	size_t	d_len;
+	size_t	res;
 
 	i = 0;
-	y = 0;
+	d_len = strlen(dst);
 	res = strlen(src) + strlen(dst);
-	while (dst[i])
+	while (d_len + i < dstsize && src[i])
+	{
+		dst[d_len + i] = src[i];
+		i++;
+	}
+	dst[dstsize - 1] = '\0';
+	return (res);
+}
+//https://c-for-dummies.com/blog/?p=3896
+
+/*while (dst[i])
 		i++;
 	while (src[y] && i < dstsize - 1)
 	{
@@ -31,7 +41,4 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, \
 		y++;
 	}
 	i++;
-	dst[i] = '\0';
-	return (res);
-}
-//https://c-for-dummies.com/blog/?p=3896
+	dst[i] = '\0'; */

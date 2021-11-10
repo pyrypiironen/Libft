@@ -17,7 +17,7 @@
 #include <string.h>
 #include <unistd.h>
 
-int		ft_atoi(const char *str);
+int		ft_atoi(const char *str);//DONE
 void	ft_bzero(void *s, size_t n);//DONE (maybe more test needed)
 int		ft_isalpha(int c);//DONE
 int		ft_isdigit(int c);//DONE
@@ -35,14 +35,14 @@ void	ft_putchar(char c);//DONE
 void	ft_putnbr(int n);//DONE
 void	ft_putstr(char const *s);//DONE
 void	ft_putendl(char const *s);//DONE
-char	*ft_strcat(char *restrict s1, const char *restrict s2);//
-char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n);//
+char	*ft_strcat(char *restrict s1, const char *restrict s2);//DONE
+char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n);//DONE
 size_t	ft_strlcat(char * restrict dst, const char * restrict src, size_t \
 	dstsize);
 char	*ft_strcpy(char * dst, const char * src);//DONE
 char	*ft_strncpy(char * dst, const char * src, size_t len);//DONE
 char	*ft_strchr(const char *s, int c);//DONE
-char	*ft_strrchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);//DONE
 char	*ft_strstr(const char *haystack, const char *needle);//DONE
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);//DONE
 int		ft_strcmp(char *s1, char *s2);//DONE
