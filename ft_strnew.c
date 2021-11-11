@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 15:43:15 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/03 15:43:20 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/11 15:59:51 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/11 16:00:06 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strnew(size_t size)
 {
-	size_t	i;
-	size_t	y;
+	char	*res;
 
-	i = 0;
-	y = 0;
-	while (s1[i])
-		i++;
-	while (s2[y] && y < ft_strlen(s2))
-	{
-		s1[i] = s2[y];
-		i++;
-		y++;
-	}
-	i++;
-	s1[i] = '\0';
-	return (s1);
+	res = (char*)malloc(sizeof(*res) * size);
+	if (res == NULL)
+		return (NULL);
+	memset(res, '\0', size);
+	return (res);
 }

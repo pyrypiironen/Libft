@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 15:43:15 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/03 15:43:20 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/11 18:25:34 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/11 18:25:47 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
 	size_t	i;
-	size_t	y;
-
+	char	*res;
+	
 	i = 0;
-	y = 0;
-	while (s1[i])
-		i++;
-	while (s2[y] && y < ft_strlen(s2))
+	res = (char *)malloc(sizeof(*res) * (strlen(s) + 1));
+	while (i < ft_strlen(s))
 	{
-		s1[i] = s2[y];
+		res[i] = (*f)(s[i]);
 		i++;
-		y++;
 	}
-	i++;
-	s1[i] = '\0';
-	return (s1);
+	res[i] = '\0';
+	
+	return (res);
 }

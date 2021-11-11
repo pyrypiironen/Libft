@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 15:43:15 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/03 15:43:20 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/11 16:22:56 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/11 16:22:58 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_strclr(char *s)
 {
 	size_t	i;
-	size_t	y;
+	
+	i = strlen(s);
+	ft_memset(s, '\0', i);
+}
+
+
+
+/*size_t	i;
 
 	i = 0;
-	y = 0;
-	while (s1[i])
-		i++;
-	while (s2[y] && y < ft_strlen(s2))
+	while (i < ft_strlen(s))
 	{
-		s1[i] = s2[y];
+		s[i] = '\0';
 		i++;
-		y++;
-	}
-	i++;
-	s1[i] = '\0';
-	return (s1);
-}
+	}*/

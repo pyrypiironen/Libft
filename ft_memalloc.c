@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 15:43:15 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/03 15:43:20 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/11 14:46:58 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/11 14:47:06 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	*ft_memalloc(size_t size)
 {
-	size_t	i;
-	size_t	y;
+	void	*res;
 
-	i = 0;
-	y = 0;
-	while (s1[i])
-		i++;
-	while (s2[y] && y < ft_strlen(s2))
-	{
-		s1[i] = s2[y];
-		i++;
-		y++;
-	}
-	i++;
-	s1[i] = '\0';
-	return (s1);
+	res = (void *)malloc(sizeof(*res) * size);
+	if (res == NULL)
+		return (NULL);
+	memset(res, 0, size);
+	return (res);
 }
