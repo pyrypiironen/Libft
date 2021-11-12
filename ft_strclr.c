@@ -16,17 +16,9 @@ void	ft_strclr(char *s)
 {
 	size_t	i;
 	
-	i = strlen(s);
-	ft_memset(s, '\0', i);
-}
-
-
-
-/*size_t	i;
-
-	i = 0;
-	while (i < ft_strlen(s))
+	if (s != NULL)
 	{
-		s[i] = '\0';
-		i++;
-	}*/
+		i = strlen(s);
+		ft_memset(s, '\0', i);
+	}
+}
