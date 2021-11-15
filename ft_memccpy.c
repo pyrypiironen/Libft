@@ -23,17 +23,17 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	dest = (unsigned char *)dst;
 	srce = (unsigned char *)src;
 	box = (unsigned char)c;
-	while (i < n) 
+	while (i < n)
 	{
 		*dest = *srce;
 		if (*srce == box)
-			{
-				dest++;
-				return(dest);
-			}
+		{
+			dest++;
+			return (dest);
+		}
 		i++;
 		dest++;
 		srce++;
 	}
-	return(NULL);
+	return (NULL);
 }

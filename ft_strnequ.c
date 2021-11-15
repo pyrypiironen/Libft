@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 15:31:40 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/08 15:31:43 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/15 19:06:57 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/15 19:06:59 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (src[i] && i < len)
+	while ((s1[i] && i < n) || (s2[i] && i < n))
 	{
-		dst[i] = src[i];
+		if (s1[i] != s2[i])
+			return (0);
 		i++;
 	}
-	ft_memset(&dst[i], '\0', len - i);
-	return (dst);
+	return (1);
 }

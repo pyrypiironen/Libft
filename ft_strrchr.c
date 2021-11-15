@@ -16,13 +16,13 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
 	size_t	len;
-	
+
 	i = 0;
 	len = strlen(s);
 	while (i < len && s[len - i] != c)
 		i++;
 	if (s[len - i] == c)
-		return (char*)(s + (len - i));
+		return ((char *)(s + (len - i)));
 	else
 		return (NULL);
 }

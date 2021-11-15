@@ -15,7 +15,7 @@
 void	ft_strclr(char *s)
 {
 	size_t	i;
-	
+
 	if (s != NULL)
 	{
 		i = strlen(s);

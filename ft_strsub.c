@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 15:31:40 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/08 15:31:43 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/15 19:19:11 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/15 19:19:18 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
+	char	*res;
 
 	i = 0;
-	while (src[i] && i < len)
+	res = (char *)malloc(sizeof(*res) * (len + 1));
+	if (res == NULL)
+		return (NULL);
+	while (i < len)
 	{
-		dst[i] = src[i];
+		res[i] = s[start + i];
 		i++;
 	}
-	ft_memset(&dst[i], '\0', len - i);
-	return (dst);
+	res[i] = '\0';
+	return (res);
 }

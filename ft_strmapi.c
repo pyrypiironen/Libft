@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 15:31:40 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/08 15:31:43 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/15 18:36:34 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/15 18:36:35 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
+	char	*res;
 
 	i = 0;
-	while (src[i] && i < len)
+	res = (char *)malloc(sizeof(*res) * (strlen(s) + 1));
+	while (i < ft_strlen(s))
 	{
-		dst[i] = src[i];
+		res[i] = (*f)(i, s[i]);
 		i++;
 	}
-	ft_memset(&dst[i], '\0', len - i);
-	return (dst);
+	res[i] = '\0';
+	return (res);
 }

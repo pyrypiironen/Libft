@@ -14,21 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*srce;
-	unsigned char	*buf;
+	size_t	i;
+	void	*buf;
 
 	i = 0;
-	dest = (unsigned char *)dst;
-	srce = (unsigned char *)src;
-	buf = srce;
+	buf = ft_memalloc(sizeof(char) * (ft_strlen(src) + 1));
+	while (((char *)src)[i])
+	{
+		((char *)buf)[i] = ((char *)src)[i];
+		i++;
+	}
+	i = 0;
 	while (i < len)
 	{
-		*dest = *buf;
+		((char *)dst)[i] = ((char *)buf)[i];
 		i++;
-		dest++;
-		buf++;
 	}
+	ft_memdel(&buf);
 	return (dst);
 }
