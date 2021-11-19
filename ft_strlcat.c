@@ -19,25 +19,17 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	res;
 
 	i = 0;
-	d_len = strlen(dst);
-	res = strlen(src) + strlen(dst);
-	while (d_len + i < dstsize && src[i])
+	d_len = ft_strlen(dst);
+	res = ft_strlen(src) + ft_strlen(dst);
+	if (dstsize < ft_strlen(dst))
+		return (ft_strlen(src) + dstsize);
+	while ((d_len + i < dstsize) && src[i])
 	{
 		dst[d_len + i] = src[i];
 		i++;
 	}
-	dst[dstsize - 1] = '\0';
+	dst[d_len + i] = '\0';
+	if (dstsize > d_len)
+		dst[dstsize - 1] = '\0';
 	return (res);
 }
-//https://c-for-dummies.com/blog/?p=3896
-
-/*while (dst[i])
-		i++;
-	while (src[y] && i < dstsize - 1)
-	{
-		dst[i] = src[y];
-		i++;
-		y++;
-	}
-	i++;
-	dst[i] = '\0'; */
