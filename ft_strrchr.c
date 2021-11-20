@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 	size_t	len;
 
 	i = 0;
-	len = strlen(s);
+	len = ft_strlen(s);
 	while (i < len && s[len - i] != c)
 		i++;
 	if (s[len - i] == c)

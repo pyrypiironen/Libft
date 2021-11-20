@@ -32,11 +32,7 @@ static int	ft_count_words(const char *s, char c)
 		while (ft_is_delimiter(s[i], c) == 1)
 			i++;//start of word (or null-terminator)
 		if (s[i] == '\0')
-		{
-			if (count == 0)
-				count = 1;
 			break ;//break if there is no more words
-		}
 		count++;
 		while (ft_is_delimiter(s[i], c) == 0)
 			i++;//skip the characters of word 
@@ -53,7 +49,7 @@ char	**ft_strsplit(char const *s, char c)
 
 	delimiter = 0;
 	i = 0;
-	if (ft_strlen(s) == 0 || s == NULL)
+	if (ft_strlen(s) == 0 || s == NULL || ft_count_words(s, c) == 0)
 		return (NULL);
 	ret = ft_memalloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (ret == NULL)
@@ -76,4 +72,6 @@ char	**ft_strsplit(char const *s, char c)
 	return (ret);
 }
 // two lines too much
-// free memory if llocating fails
+// free memory if llocating fails?
+//input *s not includes any non-delimiter characters -> return NULL
+//input *s is empty -> return NULL

@@ -16,6 +16,22 @@ char	*ft_strtrim(char const *s)
 {
 	size_t	i;
 	size_t	last;
+
+	if (s == NULL)
+		return (NULL);
+	i = 0;
+	last = ft_strlen(s);
+	while (*(s + i) == ' ' || *(s + i) == '\t' || *(s + i) == '\n')
+		i++;
+	while ((*(s + last) == '\0' || *(s + last) == ' ' || *(s + last) == '\t' ||
+		*(s + last) == '\n') && last != i)
+		last--;
+	return (ft_strsub(s, i, last - i + 1));
+}
+
+
+/*	size_t	i;
+	size_t	last;
 	char	*res;
 
 	i = 0;
@@ -35,6 +51,4 @@ char	*ft_strtrim(char const *s)
 			res[last] = '\0';
 		last++;
 	}
-	return (res);
-}
-// memory leak?
+	return (res); */
