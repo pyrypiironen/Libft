@@ -17,7 +17,7 @@
 #include <string.h>
 #include <unistd.h>
 
-int		ft_atoi(const char *str);//Fix it
+int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
