@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_ltdelone.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 18:25:34 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/11 18:25:47 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/21 18:02:29 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/21 18:23:27 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t	i;
-	char	*res;
-
-	i = 0;
-	res = (char *)malloc(sizeof(*res) * (ft_strlen(s) + 1));
-	if (res == NULL)
-		return (NULL);
-	while (i < ft_strlen(s))
-	{
-		res[i] = (*f)(s[i]);
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
+	(*del)((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

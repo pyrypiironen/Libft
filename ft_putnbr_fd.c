@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 18:25:34 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/11 18:25:47 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/20 19:15:56 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/20 19:15:58 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	char	*res;
+	int		i;
+	int		arr[20];
+	long	k;
 
 	i = 0;
-	res = (char *)malloc(sizeof(*res) * (ft_strlen(s) + 1));
-	if (res == NULL)
-		return (NULL);
-	while (i < ft_strlen(s))
+	k = n;
+	if (k < 0)
 	{
-		res[i] = (*f)(s[i]);
+		k = k * -1;
+		ft_putchar_fd('-', fd);
+	}
+	arr[i] = k % 10 + '0';
+	i++;
+	while (k / 10 > 0)
+	{
+		k = k / 10;
+		arr[i] = (k % 10 + '0');
 		i++;
 	}
-	res[i] = '\0';
-	return (res);
+	i--;
+	while (i >= 0)
+	{
+		ft_putchar_fd(arr[i], fd);
+		i--;
+	}
 }

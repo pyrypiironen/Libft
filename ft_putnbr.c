@@ -26,9 +26,10 @@ void	ft_putnbr(int n)
 		ft_putchar('-');
 	}
 	arr[i] = k % 10 + '0';
-	i = i + 1;
-	while ((k /= 10) > 0)
+	i++;
+	while (k / 10 > 0)
 	{
+		k = k / 10;
 		arr[i] = (k % 10 + '0');
 		i++;
 	}

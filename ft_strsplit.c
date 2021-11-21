@@ -12,14 +12,6 @@
 
 #include "libft.h"
 
-static int	ft_is_delimiter(char c, char d)
-{
-	if (c == d)
-		return (1);//delimiter found
-	else
-		return (0);
-}
-
 static int	ft_count_words(const char *s, char c)
 {
 	size_t	i;
@@ -29,15 +21,27 @@ static int	ft_count_words(const char *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		while (ft_is_delimiter(s[i], c) == 1)
-			i++;//start of word (or null-terminator)
-		if (s[i] == '\0')
-			break ;//break if there is no more words
-		count++;
-		while (ft_is_delimiter(s[i], c) == 0)
-			i++;//skip the characters of word 
+		if (s[i] != c)//not-equals delimiter
+		{
+			count++;
+			while (s[i] != c && s[i] != '\0')//Find char after last char of word
+				i++;
+		}
+		else
+			i++;
 	}
 	return (count);
+}
+
+static char	**ft_free_all(char **arr, int size)
+{
+	while (size > 0)
+	{
+		free(arr[size - 1]);
+		size--;
+	}
+	free(arr);
+	return (NULL);
 }
 
 char	**ft_strsplit(char const *s, char c)
@@ -49,29 +53,28 @@ char	**ft_strsplit(char const *s, char c)
 
 	delimiter = 0;
 	i = 0;
-	if (ft_strlen(s) == 0 || s == NULL || ft_count_words(s, c) == 0)
+	if (s == 0)//Is this enough?
 		return (NULL);
 	ret = ft_memalloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (ret == NULL)
 		return (NULL);
-	while (ft_is_delimiter(s[delimiter], c) == 1)
+	while (s[delimiter]== c)
 		delimiter++;
 	start = delimiter;//starting index of first word
 	while (s[start])
 	{
-		while (ft_is_delimiter(s[delimiter], c) == 0)
-			delimiter++;//next delimiter now
-		ret[i] = ft_strsub(s, start, (delimiter - start));
+		while (s[delimiter] != c)//to next delimiter
+			delimiter++;
+		ret[i] = ft_strsub(s, start, (delimiter - start));//allocate string to array
 		if (ret[i] == NULL)
-			return (NULL);
+			return (ft_free_all(ret, i - 1));
 		i++;
-		while (ft_is_delimiter(s[delimiter], c) == 1)
-			delimiter++;//next character or null/terminator
+		while (s[delimiter] == c)//to next character
+			delimiter++;
 		start = delimiter;
 	}
 	return (ret);
 }
-// two lines too much
-// free memory if llocating fails?
-//input *s not includes any non-delimiter characters -> return NULL
-//input *s is empty -> return NULL
+// 3 lines too much
+//input *s not includes any non-delimiter characters -> return NULL?
+//input *s is empty -> return NULL?

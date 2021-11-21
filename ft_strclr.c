@@ -18,7 +18,7 @@ void	ft_strclr(char *s)
 
 	if (s != NULL)
 	{
-		i = strlen(s);
+		i = ft_strlen(s);
 		ft_memset(s, '\0', i);
 	}
 }

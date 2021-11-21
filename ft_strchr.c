@@ -21,7 +21,7 @@ char	*ft_strchr(const char *s, int c)
 	box = (char)c;
 	while (*str != box)
 	{
-		if (*str == '\n')
+		if (*str == '\0')
 			return (NULL);
 		str++;
 	}
