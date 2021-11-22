@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   t_lstiter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/21 19:03:39 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/21 19:03:40 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/22 17:03:49 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/22 17:03:52 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
+	t_list	*ptr;
 
-	while ((*alst) != NULL)
+	ptr = lst;
+	while (ptr != NULL)
 	{
-		(*del)((*alst)->content, (*alst)->content_size);
-		free(*alst);
-		(*alst) = (*alst)->next;
+		(*f)(ptr);
+		ptr = ptr->next;
 	}
-	free(*alst);
-	*alst = NULL;
 }

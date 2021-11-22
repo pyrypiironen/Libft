@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_listadd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/21 19:03:39 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/21 19:03:40 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/20 18:38:15 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/20 18:38:19 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-
-	while ((*alst) != NULL)
-	{
-		(*del)((*alst)->content, (*alst)->content_size);
-		free(*alst);
-		(*alst) = (*alst)->next;
-	}
-	free(*alst);
-	*alst = NULL;
+	if (*alst == NULL)
+		ft_lstnew(new->content, new->content_size);
+	new->next = *alst;
+	*alst = new;
 }

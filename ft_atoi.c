@@ -29,11 +29,11 @@ int	ft_atoi(const char *str)
 	}
 	while (*str && *str >= '0' && *str <= '9')
 	{
+		res = res * 10 + *str - '0';
 		if (res > 9223372036854775807 && sign < 0)
 			return (0);
 		if (res > 9223372036854775807 && sign > 0)
 			return (-1);
-		res = res * 10 + *str - '0';
 		str++;
 	}
 	return ((int)(sign * res));
