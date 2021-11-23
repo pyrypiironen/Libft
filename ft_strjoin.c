@@ -29,16 +29,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res = (char *)malloc(sizeof(*res) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (res == NULL)
 		return (NULL);
-	while (i < ft_strlen(s1))
-	{
-		res[i] = s1[i];
-		i++;
-	}
-	while (y < ft_strlen(s2))
-	{
-		res[i + y] = s2[y];
-		y++;
-	}
-	res[i + y] = '\0';
+	ft_strcpy(res, s1);
+	ft_strcat(res, s2);
 	return (res);
 }
