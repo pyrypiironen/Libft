@@ -22,7 +22,7 @@ char	*ft_strduprev(const char *s1)
 	i = 0;
 	while (s1[len])
 		len++;
-	dup = ft_memalloc(sizeof(char *) * (len + 1));
+	dup = (char *)ft_memalloc(sizeof(char *) * (len + 1));
 	if (dup == NULL)
 		return (NULL);
 	len--;

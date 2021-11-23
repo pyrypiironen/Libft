@@ -55,7 +55,7 @@ char	**ft_strsplit(char const *s, char c)
 
 	delimiter = 0;
 	i = 0;
-	ret = ft_memalloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	ret = (char **)ft_memalloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (ret == NULL || s == 0)
 		return (ft_free_all(ret, 0));
 	while (s[delimiter] == c)
