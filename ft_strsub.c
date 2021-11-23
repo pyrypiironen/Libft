@@ -18,6 +18,8 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char	*res;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	res = (char *)malloc(sizeof(*res) * (len + 1));
 	if (res == NULL)
 		return (NULL);

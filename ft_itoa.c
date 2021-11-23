@@ -13,12 +13,12 @@
 #include "libft.h"
 
 static int	ft_is_positive(int n);
-static char	*ft_strdup_res(const char *s1);
+static char	*ft_strdup_rev(const char *s1);
 
 char	*ft_itoa(int n)
 {
 	int		i;
-	char	arr[20];//should this freed?
+	char	arr[20];
 	long	k;
 
 	i = 0;
@@ -36,7 +36,7 @@ char	*ft_itoa(int n)
 	}
 	if (ft_is_positive(n) == -1)
 		arr[i] = '-';
-	return (ft_strdup_res(arr));
+	return (ft_strdup_rev(arr));
 }
 
 static int	ft_is_positive(int n)
@@ -47,7 +47,7 @@ static int	ft_is_positive(int n)
 		return (0);
 }
 
-static char	*ft_strdup_res(const char *s1)
+static char	*ft_strdup_rev(const char *s1)
 {
 	char	*dup;
 	int		len;
@@ -57,7 +57,9 @@ static char	*ft_strdup_res(const char *s1)
 	i = 0;
 	while (s1[len])
 		len++;
-	dup = ft_memalloc(sizeof(char *) * (len + 1));
+	dup = ft_memalloc(sizeof(char *) * (len + 2));
+	if (dup == NULL)
+		return (NULL);
 	len--;
 	while (len >= 0)
 	{
