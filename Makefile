@@ -2,12 +2,14 @@ NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
 FILES = ft_atoi.c \
 		ft_bzero.c \
+		ft_countwords.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
 		ft_ispositive.c \
+		ft_iswhitespace.c \
 		ft_itoa.c \
 		ft_lstadd.c \
 		ft_lstdel.c \
@@ -59,7 +61,8 @@ FILES = ft_atoi.c \
 		ft_strsub.c \
 		ft_strtrim.c \
 		ft_tolower.c \
-		ft_toupper.c
+		ft_toupper.c \
+		ft_wordlen.c
 HEADER = libft.h
 
 .PHONY:	all	clean	fclean	re	go

@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_countwords.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 17:22:17 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/22 17:22:18 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/24 18:38:05 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/24 18:38:07 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+int	ft_countwords(const char *str)
 {
-	t_list	*fresh;
-	t_list	*tmp;
+	int	i;
+	int	count;
 
-	tmp = (*f)(lst);
-	if (tmp == NULL)
-		return (NULL);
-	fresh = tmp;
-	while (lst->next != NULL)
+	i = 0;
+	count = 0;
+	while (str[i])
 	{
-		tmp->next = (*f)(lst->next);
-		if (tmp->next == NULL)
-			return (NULL);
-		tmp = tmp->next;
-		lst = lst->next;
+		while (str[i] && ft_iswhitespace((char)str[i]) == 1)
+			i++;
+		if (str[i])
+			count++;
+		while (str[i] && ft_iswhitespace((char)str[i]) == 0)
+			i++;
 	}
-	return (fresh);
+	return (count);
 }
