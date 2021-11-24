@@ -962,6 +962,16 @@ int main()
 		ft_putendl("ft_lstmap    KNOCK OUT!");
 //*****		Double testing		************************************************
 
+//char bug1[] = "AABB";
+//char bug2[] = "AABG";
+//ft_putstr("\n");
+//ft_putendl("Inputs are strings: ");
+//printf("\nft_strcmp: %i\nstrcmp: %i\n", ft_strcmp("AABB", "AABG"), strcmp("AABB", "AABG"));
+//printf("ft_str'n'cmp: %i\nstrcmp: %i\n\n", ft_strncmp("AABB", "AABG", 4), strncmp("AABB", "AABG", 4));
+//ft_putendl("Input are char arrays: ");
+//printf("\nft_strcmp: %i\nstrcmp: %i\n", ft_strcmp(bug1, bug2), strcmp(bug1, bug2));
+//printf("ft_str'n'cmp: %i\nstrcmp: %i\n", ft_strncmp(bug1, bug2, 4), strncmp(bug1, bug2, 4));
+
 
 
 //*****		End testing			************************************************
