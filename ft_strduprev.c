@@ -18,11 +18,9 @@ char	*ft_strduprev(const char *s1)
 	int		len;
 	int		i;
 
-	len = 0;
 	i = 0;
-	while (s1[len])
-		len++;
-	dup = (char *)ft_memalloc(sizeof(char *) * (len + 1));
+	len = ft_strlen(s1);
+	dup = (char *)ft_memalloc(sizeof(char) * (len + 1));
 	if (dup == NULL)
 		return (NULL);
 	len--;
