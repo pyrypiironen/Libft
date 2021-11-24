@@ -14,7 +14,7 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
-	if (needle == NULL)
+	if (ft_strlen(needle) == 0)
 		return ((char *)(haystack));
 	while (ft_strlen(haystack) >= ft_strlen(needle))
 	{
