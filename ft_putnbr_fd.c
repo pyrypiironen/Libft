@@ -36,7 +36,7 @@ void	ft_putnbr_fd(int n, int fd)
 	i--;
 	while (i >= 0)
 	{
-		ft_putchar_fd(arr[i], fd);
+		ft_putchar_fd((char)arr[i], fd);
 		i--;
 	}
 }

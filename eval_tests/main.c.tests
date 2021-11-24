@@ -960,21 +960,32 @@ int main()
 		ft_putendl("ft_lstmap    OK!");
 	else
 		ft_putendl("ft_lstmap    KNOCK OUT!");
-//*****		Double testing		************************************************
+//*****		Defend ft_strcmp and ft_strncmp		********************************
 
-//char bug1[] = "AABB";
-//char bug2[] = "AABG";
-//ft_putstr("\n");
-//ft_putendl("Inputs are strings: ");
-//printf("\nft_strcmp: %i\nstrcmp: %i\n", ft_strcmp("AABB", "AABG"), strcmp("AABB", "AABG"));
-//printf("ft_str'n'cmp: %i\nstrcmp: %i\n\n", ft_strncmp("AABB", "AABG", 4), strncmp("AABB", "AABG", 4));
-//ft_putendl("Input are char arrays: ");
-//printf("\nft_strcmp: %i\nstrcmp: %i\n", ft_strcmp(bug1, bug2), strcmp(bug1, bug2));
-//printf("ft_str'n'cmp: %i\nstrcmp: %i\n", ft_strncmp(bug1, bug2, 4), strncmp(bug1, bug2, 4));
+	//char bug1[] = "AABB";
+	//char bug2[] = "AABG";
+	//ft_putstr("\n");
+	//ft_putendl("Inputs are strings: ");
+	//printf("\nft_strcmp: %i\nstrcmp: %i\n", ft_strcmp("AABB", "AABG"), strcmp("AABB", "AABG"));
+	//printf("ft_str'n'cmp: %i\nstrcmp: %i\n\n", ft_strncmp("AABB", "AABG", 4), strncmp("AABB", "AABG", 4));
+	//ft_putendl("Input are char arrays: ");
+	//printf("\nft_strcmp: %i\nstrcmp: %i\n", ft_strcmp(bug1, bug2), strcmp(bug1, bug2));
+	//printf("ft_str'n'cmp: %i\nstrcmp: %i\n", ft_strncmp(bug1, bug2, 4), strncmp(bug1, bug2, 4));
 
 
 
-//*****		End testing			************************************************
+//*****		Double tests		************************************************
+
+//char *word = "Hello four and what ever";
+//word++;
+//word++;
+//printf("Ft_countwords(5): %i\n", ft_countwords("  one two tree four five   "));
+//printf("Ft_wordlen(3): %zu\n", ft_wordlen(word));
+
+
+
+//*****		End of tests		************************************************
+ 
 	ft_putstr("\n");
 	return (0);
 }
