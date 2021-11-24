@@ -62,6 +62,8 @@ FILES = ft_atoi.c \
 		ft_toupper.c
 HEADER = libft.h
 
+.PHONY:	all	clean	fclean	re	go
+
 all: $(NAME)
 
 $(NAME):
