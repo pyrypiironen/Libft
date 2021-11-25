@@ -72,7 +72,7 @@ char	*ft_strdup(const char *s1);
 char	*ft_strduprev(const char *s1);
 size_t	ft_strlen(const char *s);
 char	*ft_strnew(size_t size);
-void	*ft_strdel(char **as);
+void	ft_strdel(char **as);
 void	ft_strclr(char *s);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
