@@ -3,12 +3,12 @@ FLAGS = -Wall -Wextra -Werror
 FILES = ft_atoi.c \
 		ft_bzero.c \
 		ft_countwords.c \
+		ft_freearray.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
-		ft_ispositive.c \
 		ft_iswhitespace.c \
 		ft_itoa.c \
 		ft_lstadd.c \

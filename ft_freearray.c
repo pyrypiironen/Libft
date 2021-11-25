@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ispositive.c                                    :+:      :+:    :+:   */
+/*   ft_freearray.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 12:24:53 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/24 12:24:55 by ppiirone         ###   ########.fr       */
+/*   Created: 2021/11/25 13:17:27 by ppiirone          #+#    #+#             */
+/*   Updated: 2021/11/25 13:17:30 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_ispositive(int n)
+ char	**ft_freearray(char **arr, int size)
 {
-	if (n < 0)
-		return (-1);
-	else
-		return (0);
+	while (size > 0)
+	{
+		free(arr[size - 1]);
+		size--;
+	}
+	free(arr);
+	return (NULL);
 }

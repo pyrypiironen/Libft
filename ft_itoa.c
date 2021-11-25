@@ -21,7 +21,7 @@ char	*ft_itoa(int n)
 	i = 0;
 	k = n;
 	ft_bzero(arr, 20);
-	if (ft_ispositive(n) == -1)
+	if (n < 0)
 		k = k * -1;
 	arr[i] = k % 10 + '0';
 	i++;
@@ -31,7 +31,7 @@ char	*ft_itoa(int n)
 		arr[i] = (k % 10 + '0');
 		i++;
 	}
-	if (ft_ispositive(n) == -1)
+	if (n < 0)
 		arr[i] = '-';
 	return (ft_strduprev(arr));
 }

@@ -35,17 +35,6 @@ static int	ft_count_words(const char *s, char c)
 	return (count);
 }
 
-static char	**ft_free_all(char **arr, int size)
-{
-	while (size > 0)
-	{
-		free(arr[size - 1]);
-		size--;
-	}
-	free(arr);
-	return (NULL);
-}
-
 char	**ft_strsplit(char const *s, char c)
 {
 	size_t	start;
@@ -57,7 +46,7 @@ char	**ft_strsplit(char const *s, char c)
 	i = 0;
 	ret = (char **)ft_memalloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (ret == NULL || s == 0)
-		return (ft_free_all(ret, 0));
+		return (ft_freearray(ret, 0));
 	while (s[delimiter] == c)
 		delimiter++;
 	start = delimiter;
@@ -67,7 +56,7 @@ char	**ft_strsplit(char const *s, char c)
 			delimiter++;
 		ret[i++] = ft_strsub(s, start, (delimiter - start));
 		if (ret[i - 1] == NULL)
-			return (ft_free_all(ret, i - 2));
+			return (ft_freearray(ret, i - 2));
 		while (s[delimiter] == c)
 			delimiter++;
 		start = delimiter;
