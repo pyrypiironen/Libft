@@ -46,7 +46,7 @@ char	**ft_strsplit(char const *s, char c)
 	i = 0;
 	ret = (char **)ft_memalloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (ret == NULL || s == 0)
-		return (ft_freearray(ret, 0));
+		return (ft_freearray(ret));
 	while (s[delimiter] == c)
 		delimiter++;
 	start = delimiter;
@@ -56,7 +56,7 @@ char	**ft_strsplit(char const *s, char c)
 			delimiter++;
 		ret[i++] = ft_strsub(s, start, (delimiter - start));
 		if (ret[i - 1] == NULL)
-			return (ft_freearray(ret, i - 2));
+			return (ft_freearray(ret));
 		while (s[delimiter] == c)
 			delimiter++;
 		start = delimiter;

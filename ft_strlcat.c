@@ -28,8 +28,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		dst[d_len + i] = src[i];
 		i++;
 	}
-	dst[d_len + i] = '\0';
 	if (dstsize > d_len)
 		dst[dstsize - 1] = '\0';
+	else
+		dst[d_len + i] = '\0';
 	return (res);
 }

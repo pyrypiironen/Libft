@@ -28,7 +28,7 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 void	ft_bzero(void *s, size_t n);
 int		ft_countwords(const char *str);
-char	**ft_freearray(char **arr, int size);
+char	**ft_freearray(char **arr);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
