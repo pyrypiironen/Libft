@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-char	**ft_freearray(char **arr)
+char	**ft_freearray(char **arr, int size)
 {
 	int	i;
 
 	i = 0;
-	while (arr)
+	while (i < size)
 	{
 		ft_bzero(arr[i], ft_strlen(arr[i]));
 		free(arr[i]);
