@@ -64,6 +64,7 @@ FILES = ft_atoi.c \
 		ft_toupper.c \
 		ft_wordlen.c
 HEADER = libft.h
+OBJS	= $(FILES:.c=.o)
 
 .PHONY:	all	clean	fclean	re	go
 
@@ -71,11 +72,11 @@ all: $(NAME)
 
 $(NAME):
 		gcc $(FLAGS) -c $(FILES) $(HEADER)
-		ar rc $(NAME) *.o
+		ar rc $(NAME) $(OBJS)
 		ranlib $(NAME)
 
 clean:
-		rm -f *.o
+		rm -f $(OBJS)
 
 fclean: clean
 		rm -f $(NAME) *.gch
@@ -84,7 +85,7 @@ re: fclean all
 
 go: fclean
 		gcc $(FLAGS) -c $(FILES) $(HEADER)
-		ar rc $(NAME) *.o
+		ar rc $(NAME) $(OBJS)
 		ranlib $(NAME)
 		gcc main.c -L. -lft
 		./a.out
