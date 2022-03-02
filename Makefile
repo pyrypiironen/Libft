@@ -62,7 +62,8 @@ FILES = ft_atoi.c \
 		ft_strtrim.c \
 		ft_tolower.c \
 		ft_toupper.c \
-		ft_wordlen.c
+		ft_wordlen.c \
+		get_next_line.c
 HEADER = libft.h
 OBJS	= $(FILES:.c=.o)
 

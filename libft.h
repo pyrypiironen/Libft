@@ -17,6 +17,9 @@
 # include <string.h>
 # include <unistd.h>
 
+# define BUFF_SIZE 125
+# define FD_SIZE 125
+
 typedef struct s_list
 {
 	void			*content;
@@ -87,5 +90,6 @@ char	**ft_strsplit(char const *s, char c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 size_t	ft_wordlen(const char *str);
+int		get_next_line(const int fd, char **line);
 
 #endif
