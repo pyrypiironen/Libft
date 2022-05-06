@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 19:38:34 by ppiirone          #+#    #+#             */
-/*   Updated: 2021/11/20 19:38:43 by ppiirone         ###   ########.fr       */
+/*   Created: 2022/04/22 15:04:48 by ppiirone          #+#    #+#             */
+/*   Updated: 2022/04/22 15:04:50 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(long long n)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
-	int			i;
-	char		arr[24];
-	long long	k;
+	size_t	i;
+	size_t	y;
+	char	*res;
 
-	if (n < -9223372036854775807)
-		return (ft_strdup("-9223372036854775808"));
 	i = 0;
-	k = n;
-	ft_bzero(arr, 24);
-	if (n < 0)
-		k = k * -1;
-	arr[i] = k % 10 + '0';
-	i++;
-	while (k / 10 > 0)
-	{
-		k = k / 10;
-		arr[i] = (k % 10 + '0');
-		i++;
-	}
-	if (n < 0)
-		arr[i] = '-';
-	return (ft_strduprev(arr));
+	y = 0;
+	if (s1 == NULL && s2 == NULL)
+		return (NULL);
+	if (s1 == NULL && s2 != NULL)
+		return (s2);
+	if (s1 != NULL && s2 == NULL)
+		return (s1);
+	res = (char *)malloc(sizeof(*res) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (res == NULL)
+		return (NULL);
+	ft_strcpy(res, s1);
+	ft_strcat(res, s2);
+	free(s1);
+	free(s2);
+	return (res);
 }

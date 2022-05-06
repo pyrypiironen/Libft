@@ -11,6 +11,7 @@ FILES = ft_atoi.c \
 		ft_isprint.c \
 		ft_iswhitespace.c \
 		ft_itoa.c \
+		ft_itoa_base.c \
 		ft_lstadd.c \
 		ft_lstdel.c \
 		ft_lstdelone.c \
@@ -32,6 +33,7 @@ FILES = ft_atoi.c \
 		ft_putnbr.c \
 		ft_putnbr_fd.c \
 		ft_putstr.c \
+		ft_putstr_free.c \
 		ft_putstr_fd.c \
 		ft_strcat.c \
 		ft_strchr.c \
@@ -45,6 +47,7 @@ FILES = ft_atoi.c \
 		ft_striter.c \
 		ft_striteri.c \
 		ft_strjoin.c \
+		ft_strjoin_free.c \
 		ft_strlcat.c \
 		ft_strlen.c \
 		ft_strmap.c \
