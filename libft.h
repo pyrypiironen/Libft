@@ -16,7 +16,11 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "ft_printf/includes/ft_printf.h"
 
+/*
+** Get_next_line
+*/
 # define BUFF_SIZE 125
 # define FD_SIZE 125
 

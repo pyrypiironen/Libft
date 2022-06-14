@@ -1,5 +1,7 @@
 NAME = libft.a
+HEADER = libft.h
 FLAGS = -Wall -Wextra -Werror
+
 FILES = ft_atoi.c \
 		ft_bzero.c \
 		ft_countwords.c \
@@ -67,29 +69,57 @@ FILES = ft_atoi.c \
 		ft_toupper.c \
 		ft_wordlen.c \
 		get_next_line.c
-HEADER = libft.h
-OBJS	= $(FILES:.c=.o)
 
-.PHONY:	all	clean	fclean	re	go
+PRINTF_FILES = colors.c \
+		conversion.c \
+		convert_binary.c \
+		convert_char.c \
+		convert_double.c \
+		convert_hexadecimal.c \
+		convert_int.c \
+		convert_modulo.c \
+		convert_octal.c \
+		convert_pointer.c \
+		convert_string.c \
+		convert_unsigned_int.c \
+		dtoa.c \
+		ft_printf.c \
+		helpers_common.c \
+		helpers_double.c \
+		helpers_unsigned.c \
+		print.c \
+		read_specifiers.c \
+		read_specifiers_2.c \
+		struct_settings.c \
+
+PRINTF_SRCS = $(addprefix ft_printf/srcs/, $(PRINTF_FILES))
+
+SRCS = $(FILES) \
+	$(PRINTF_SRCS)
+
+OBJS = $(FILES:.c=.o) \
+	$(PRINTF_FILES:.c=.o)
+
+OBJS_DIR = objs/
+
+.PHONY:	all	clean	fclean	re
 
 all: $(NAME)
 
 $(NAME):
-		gcc $(FLAGS) -c $(FILES) $(HEADER)
-		ar rc $(NAME) $(OBJS)
-		ranlib $(NAME)
+	@gcc $(FLAGS) -c $(SRCS) $(HEADER)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
+	@mkdir $(OBJS_DIR)
+	@mv *.o $(OBJS_DIR)
+	@echo "Make succesfully done."
 
 clean:
-		rm -f $(OBJS)
+	@rm -rf $(OBJS_DIR)
+	@echo "Make clean succesfully done."
 
 fclean: clean
-		rm -f $(NAME) *.gch
+	@rm -f $(NAME) *.gch
+	@echo "Make fclean succesfully done."
 
 re: fclean all
-
-go: fclean
-		gcc $(FLAGS) -c $(FILES) $(HEADER)
-		ar rc $(NAME) $(OBJS)
-		ranlib $(NAME)
-		gcc main.c -L. -lft
-		./a.out
