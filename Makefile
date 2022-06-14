@@ -14,21 +14,28 @@ FILES = ft_atoi.c \
 		ft_iswhitespace.c \
 		ft_itoa.c \
 		ft_itoa_base.c \
-		ft_lstadd.c \
+		ft_tolower.c \
+		ft_toupper.c \
+		ft_wordlen.c \
+		get_next_line.c
+
+LIST_FILES = ft_lstadd.c \
 		ft_lstdel.c \
 		ft_lstdelone.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		ft_lstnew.c \
-		ft_memalloc.c \
+		ft_lstnew.c
+
+MEM_FILES = ft_memalloc.c \
 		ft_memccpy.c \
 		ft_memchr.c \
 		ft_memcmp.c \
 		ft_memcpy.c \
 		ft_memdel.c \
 		ft_memmove.c \
-		ft_memset.c \
-		ft_putchar.c \
+		ft_memset.c
+
+PUT_FILES = ft_putchar.c \
 		ft_putchar_fd.c \
 		ft_putendl.c \
 		ft_putendl_fd.c \
@@ -36,8 +43,9 @@ FILES = ft_atoi.c \
 		ft_putnbr_fd.c \
 		ft_putstr.c \
 		ft_putstr_free.c \
-		ft_putstr_fd.c \
-		ft_strcat.c \
+		ft_putstr_fd.c
+
+STR_FILES = ft_strcat.c \
 		ft_strchr.c \
 		ft_strclr.c \
 		ft_strcmp.c \
@@ -64,11 +72,7 @@ FILES = ft_atoi.c \
 		ft_strsplit.c \
 		ft_strstr.c \
 		ft_strsub.c \
-		ft_strtrim.c \
-		ft_tolower.c \
-		ft_toupper.c \
-		ft_wordlen.c \
-		get_next_line.c
+		ft_strtrim.c
 
 PRINTF_FILES = colors.c \
 		conversion.c \
@@ -90,15 +94,29 @@ PRINTF_FILES = colors.c \
 		print.c \
 		read_specifiers.c \
 		read_specifiers_2.c \
-		struct_settings.c \
+		struct_settings.c
 
+LIST_SRCS = $(addprefix list/, $(LIST_FILES))
+MEM_SRCS = $(addprefix mem/, $(MEM_FILES))
+PUT_SRCS = $(addprefix put/, $(PUT_FILES))
+STR_SRCS = $(addprefix str/, $(STR_FILES))
 PRINTF_SRCS = $(addprefix ft_printf/srcs/, $(PRINTF_FILES))
 
+
 SRCS = $(FILES) \
+	$(LIST_SRCS) \
+	$(MEM_SRCS) \
+	$(PUT_SRCS) \
+	$(STR_SRCS) \
 	$(PRINTF_SRCS)
 
 OBJS = $(FILES:.c=.o) \
+	$(LIST_FILES:.c=.o) \
+	$(MEM_FILES:.c=.o) \
+	$(STR_FILES:.c=.o) \
+	$(PUT_FILES:.c=.o) \
 	$(PRINTF_FILES:.c=.o)
+	
 
 OBJS_DIR = objs/
 
